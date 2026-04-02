@@ -5,6 +5,20 @@ import os
 # Konfigurasi Halaman
 st.set_page_config(page_title="Katalog Anggrek", layout="wide")
 
+st.markdown("""
+<style>
+.stApp {
+    background-color: #e0aaff;
+    color: black;
+}
+
+/* Semua teks utama */
+h1, h2, h3, h4, h5, h6, p, span, div {
+    color: black !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # 1. Tampilkan Banner Canva
 if os.path.exists("anggrekku.png"):
     st.image("anggrekku.png", use_container_width=True)
@@ -46,6 +60,12 @@ try:
 except Exception as e:
     st.error(f"Terjadi kesalahan: {e}")
 
+st.divider ()
+st.header("Tips Perawatan Anggrek")
+
+with st.subheader("Video Tutorial"):
+    st.video("https://youtu.be/hLxmGAFebxM?si=5BJbVbciwf2eUxQd")
+
 # --- BAGIAN KONTAK & ALAMAT (FOOTER) ---
 st.write("") # Memberi ruang kosong
 st.write("")
@@ -55,16 +75,17 @@ col_info1, col_info2 = st.columns(2)
 
 with col_info1:
     st.markdown("""
-    **Alamat Galeri:** Jl. Anggrek Indah No. 123,  
-    Kecamatan Bunga, Kota Flora,  
-    Yogyakarta.
+    **Alamat Galeri:** Jl. C. Simanjuntak No.60, Terban, 
+    Kec. Gondokusuman, Kota Yogyakarta, 
+    Daerah Istimewa Yogyakarta, 
+    kode pos 55223.
     """)
 
 with col_info2:
     # Ganti nomor HP di bawah ini dengan nomor Anda (gunakan format 62)
-    no_hp = "6281234567890" 
+    no_hp = "6282220884426" 
     pesan_wa = "Halo, saya tertarik memesan anggrek di katalog Anda."
-    link_wa = f"https://wa.me/{no_hp}?text={pesan_wa.replace(' ', '%20')}"
+    link_wa = f"https://wa.me/{6282220884426}?text={pesan_wa.replace(' ', '%20')}"
     
     st.markdown(f"**WhatsApp:**")
     st.link_button("📱 Pesan Sekarang via WhatsApp", link_wa)
